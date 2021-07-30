@@ -241,7 +241,7 @@
                   <video src="" width="100%" height="auto" controls></video>
                   <v-card-title
                     @click="$router.push(`/watch/title`)"
-                    class="pt-0 pb-2 text-md-caption cursor-pointer"
+                    class="pt-0 pb-2 text-md-caption cursor-pointer vid_title"
                     >My first video</v-card-title
                   >
                 </v-card>
@@ -303,5 +303,8 @@ export default {
 }
 .v-card__title {
   font-size: 1.1rem !important;
+}
+.vid_title {
+  font-size: 0.9rem !important;
 }
 </style>

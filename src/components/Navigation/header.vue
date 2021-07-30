@@ -33,7 +33,10 @@
         >
         <v-list-item class=""
           ><span class="rotate_90"
-            ><router-link class="text-decoration-none" to="/blog"
+            ><router-link
+              class="text-decoration-none"
+              target="_blank"
+              to="/blog"
               >Blog</router-link
             ></span
           ></v-list-item
