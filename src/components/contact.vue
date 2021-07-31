@@ -1,13 +1,13 @@
 <template>
   <v-container fluid>
-    <v-row>
+    <v-row class="d-none d-sm-flex">
       <v-col class="text-right">
         <span class="font-weight-bold page_title">{{ $route.name }}</span>
       </v-col>
     </v-row>
     <v-row class="about">
       <v-col cols="12">
-        <h2 class="text-center primary--text">
+        <h2 class="text-center primary--text mobile_header">
           Let’s build something amazing together
         </h2>
         <p class="text-center primary--text">
@@ -25,9 +25,9 @@
             :src="require('@/assets/images/contact.png')"
           ></v-img></div
       ></v-col>
-      <v-col cols="12" sm="12" md="6" class="secondary">
+      <v-col cols="12" sm="12" md="6" class="white rounded">
         <div class="px-5 px-md-10 pt-md-10">
-          <h1>Send me a message</h1>
+          <h3>Send me a message</h3>
           <p>I’d love to hear from you.</p>
           <v-form ref="form" @submit.prevent="" v-model="valid" lazy-validation>
             <v-text-field

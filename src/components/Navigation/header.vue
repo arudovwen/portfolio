@@ -57,9 +57,9 @@
         >
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar flat class="d-lg-none justify-space-between">
+    <v-app-bar class="d-lg-none justify-space-between">
       <div class="pa-2">
-        <v-avatar size="35" color="white">
+        <v-avatar size="35" color="white" @click="$router.push('/')">
           <img :src="require('@/assets/images/logo.png')" alt="avatar" />
         </v-avatar>
       </div>

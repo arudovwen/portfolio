@@ -1,13 +1,13 @@
 <template>
   <v-container fluid class="pb-15">
-    <v-row>
+    <v-row class="d-none d-sm-flex">
       <v-col class="text-right">
         <span class="font-weight-bold page_title">{{ $route.name }}</span>
       </v-col>
     </v-row>
     <v-row class="about mb-5 mb-md-10">
       <v-col cols="12" class="mb-3 mb-md-5">
-        <h2 class="text-center primary--text">
+        <h2 class="text-center primary--text mobile_header">
           I design and build digital products
         </h2>
       </v-col>

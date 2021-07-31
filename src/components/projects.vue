@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="h-100">
-    <v-row>
+    <v-row class="d-none d-sm-flex">
       <v-col class="d-flex justify-space-between">
         <h3>Here are some of my recent projects</h3>
         <span class="font-weight-bold page_title">{{ $route.name }}</span>
@@ -314,8 +314,6 @@ export default {
     position: absolute;
     width: 10%;
     height: 10%;
-    background: #a4c2db;
-    border-radius: 50rem;
   }
   .sheet span:nth-child(1) {
     top: 15%;
@@ -372,23 +370,20 @@ export default {
 }
 @media only screen and (max-width: 576px) {
   .sheet2 {
-    width: 70%;
-    height: 42%;
+    width: 280px;
+    height: 280px;
   }
   .sheet3 {
-    width: 90%;
-    height: 90%;
+    width: 260px;
+    height: 260px;
   }
   .sheet4 {
     width: 90%;
     height: 90%;
   }
   .sheet span {
-    position: absolute;
-    width: 10%;
-    height: 10%;
-    background: #a4c2db;
-    border-radius: 50rem;
+    width: 60px;
+    height: 60px;
   }
   .sheet span:nth-child(1) {
     top: 15%;
@@ -397,52 +392,52 @@ export default {
     bottom: 15%;
   }
   .sheet span:nth-child(3) {
-    right: 45%;
+    right: 43%;
     top: 0;
   }
   .sheet span:nth-child(4) {
-    left: 30%;
+    left: 20%;
     bottom: 1%;
   }
   .sheet span:nth-child(5) {
     top: 15%;
-    right: 30%;
+    right: 20%;
   }
   .sheet span:nth-child(6) {
     top: 15%;
-    left: 30%;
+    left: 20%;
   }
   .sheet span:nth-child(7) {
     bottom: 15%;
-    right: 30%;
+    right: 20%;
   }
   .sheet span:nth-child(8) {
     bottom: 15%;
-    left: 30%;
+    left: 20%;
   }
   .sheet span:nth-child(9) {
     top: unset;
     bottom: 1%;
-    right: 30%;
+    right: 20%;
   }
   .sheet span:nth-child(10) {
     bottom: 1%;
-    left: 45%;
+    left: 40%;
   }
   .sheet span:nth-child(11) {
     top: 0%;
-    right: 30%;
+    right: 20%;
   }
   .sheet span:nth-child(12) {
     top: 0%;
-    left: 30%;
+    left: 20%;
   }
   .sheet span:nth-child(13) {
     bottom: 27%;
-    right: 25%;
+    right: 20%;
   }
   .sheet span:nth-child(14) {
-    left: 25%;
+    left: 20%;
     bottom: 27%;
   }
   .project_name {

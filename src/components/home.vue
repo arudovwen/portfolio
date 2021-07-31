@@ -6,9 +6,7 @@
           <v-container class="h-100 pa-0">
             <v-row class="name_row" no-gutters>
               <v-col>
-                <div class="name_display">
-                  {{ name }}
-                </div>
+                <div class="name_display" v-html="name"></div>
               </v-col>
             </v-row>
             <v-row class="img_row flex-column flex-md-row my-0 mx-auto">
@@ -41,7 +39,7 @@ export default {
   name: "Home",
 
   data: () => ({
-    name: "Success A.Ahon",
+    name: "<span class='primary--tex'>Success</span> <span class='secondary--text'>A. Ahon</span>",
     title: "<Full-Stack Web Developer />",
   }),
   methods: {},
@@ -55,9 +53,9 @@ export default {
   position: relative;
 }
 .name_display {
-  font-size: 4rem;
+  font-size: 3rem;
   position: relative;
-  margin-left: -18%;
+  margin-left: -17%;
 }
 
 .name_row {
@@ -95,6 +93,7 @@ export default {
 
   .name_display {
     font-size: 2rem;
+    margin-left: 6%;
   }
   .name_row {
     height: auto;
