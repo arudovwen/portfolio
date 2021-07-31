@@ -26,7 +26,7 @@
           ></v-img></div
       ></v-col>
       <v-col cols="12" sm="12" md="6" class="white rounded">
-        <div class="px-5 px-md-10 pt-md-10">
+        <div class="pa-5 pa-md-10">
           <h3>Send me a message</h3>
           <p>I’d love to hear from you.</p>
           <v-form ref="form" @submit.prevent="" v-model="valid" lazy-validation>
