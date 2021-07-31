@@ -9,7 +9,7 @@
     <div class="testimonials">
       <v-carousel height="350" v-model="model" show-arrows-on-hover>
         <v-carousel-item v-for="color in colors" :key="color">
-          <v-card v-for="(item, i) in items" :key="i" color="secondary">
+          <v-card v-for="(item, i) in items" :key="i" color="white">
             <div class="d-flex flex-column flex-sm-row">
               <div class="profile_image">
                 <v-img
@@ -38,7 +38,7 @@
                 </div>
 
                 <h4>{{ item.name }}</h4>
-                <h3 class="adjacent--text">{{ item.title }}</h3>
+                <h3 class="secondary--text">{{ item.title }}</h3>
               </div>
             </div>
           </v-card>

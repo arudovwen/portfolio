@@ -52,7 +52,7 @@
               ></v-text-field>
 
               <v-btn
-                class="ma-2"
+                class="mt-5 d-sm-none switch__button button switch-btn"
                 :loading="loading"
                 :disabled="loading"
                 elevation="10"
@@ -67,10 +67,32 @@
                   </span>
                 </template>
               </v-btn>
-              <v-divider class="d-sm-none"></v-divider>
-              <div class="d-flex d-sm-none align-center mt-8">
+              <v-btn
+                class="mt-5 d-none d-sm-block switch__button button switch-btn"
+                :loading="loading"
+                :disabled="loading"
+                elevation="10"
+                rounded
+                color="primary"
+                @click="loader = 'loading'"
+              >
+                SIGN UP
+                <template v-slot:loader>
+                  <span class="custom-loader">
+                    <v-icon light>mdi-cached</v-icon>
+                  </span>
+                </template>
+              </v-btn>
+
+              <div class="d-flex d-sm-none align-center mt-5">
                 Already have an account?
-                <v-btn plain color="secondary" dark @click="toggleAuth">
+                <v-btn
+                  plain
+                  color="secondary"
+                  style="width: 40px"
+                  dark
+                  @click="toggleAuth"
+                >
                   SIGN IN
                 </v-btn>
               </div>
@@ -124,7 +146,7 @@
               >
 
               <v-btn
-                class="ma-2"
+                class="mt-5 d-sm-none switch__button button switch-btn"
                 :loading="loading"
                 :disabled="loading"
                 elevation="10"
@@ -139,10 +161,33 @@
                   </span>
                 </template>
               </v-btn>
-              <v-divider class="d-sm-none"></v-divider>
-              <div class="d-flex d-sm-none align-center mt-8">
+
+              <v-btn
+                class="mt-5 d-none d-sm-block switch__button button switch-btn"
+                :loading="loading"
+                :disabled="loading"
+                elevation="10"
+                rounded
+                color="primary"
+                @click="loader = 'loading'"
+              >
+                SIGN IN
+                <template v-slot:loader>
+                  <span class="custom-loader">
+                    <v-icon light>mdi-cached</v-icon>
+                  </span>
+                </template>
+              </v-btn>
+
+              <div class="d-flex d-sm-none align-center mt-5">
                 Don't have an account?
-                <v-btn plain color="secondary" dark @click="toggleAuth">
+                <v-btn
+                  plain
+                  color="secondary"
+                  style="width: 40px"
+                  dark
+                  @click="toggleAuth"
+                >
                   SIGN UP
                 </v-btn>
               </div>
@@ -301,10 +346,7 @@ $transition: 1.2s;
     transform: scale(0.6);
   }
   @media (max-width: 800px) {
-    transform: scale(0.5);
-  }
-  @media (max-width: 600px) {
-    transform: scale(0.4);
+    transform: scale(0.9);
   }
 }
 .logincontainer {
@@ -320,7 +362,12 @@ $transition: 1.2s;
 
   background-color: $neu-1;
   transition: $transition;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 }
+
 .form {
   display: flex;
   justify-content: center;
@@ -348,7 +395,7 @@ $transition: 1.2s;
     margin: 4px 0;
 
     padding-left: 25px;
-    font-size: 13px;
+    font-size: 14px;
     letter-spacing: 0.15px;
     border: none;
     outline: none;
@@ -403,7 +450,7 @@ $transition: 1.2s;
   color: $black;
 }
 .description {
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: 0.25px;
   text-align: center;
   line-height: 1.6;
@@ -414,7 +461,7 @@ $transition: 1.2s;
   border-radius: 25px;
   margin-top: 50px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: 1.15px;
 
   background-color: $purple;
@@ -429,12 +476,23 @@ $transition: 1.2s;
 .a-container {
   z-index: 100;
   left: calc(100% - 600px);
+  @media (max-width: 800px) {
+    left: 0;
+  }
 }
 .b-container {
   left: calc(100% - 600px);
   z-index: 0;
+  @media (max-width: 800px) {
+    left: 0;
+  }
 }
-
+.v-btn:not(.v-btn--round).v-size--default {
+  height: 44px;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+}
 .switch {
   display: flex;
   justify-content: center;
@@ -538,8 +596,8 @@ $transition: 1.2s;
 }
 @media (max-width: 600px) {
   .main {
-    width: 600px;
-    min-width: 600px;
+    width: 100%;
+    min-width: 100%;
   }
 }
 </style>
