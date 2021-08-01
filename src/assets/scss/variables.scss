@@ -7,8 +7,20 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
+p,
+li,
+small,
+a,
+h1.h2,
+h3,
+h4,
+h5,
+h6 {
+  word-break: initial;
+}
 p {
   font-size: 1rem;
+  line-height: 1.4;
 }
 .v-application__wrap {
   flex-direction: row;
@@ -19,7 +31,6 @@ p {
 .text--truncate {
   display: -webkit-box !important;
   -webkit-box-orient: vertical;
-  white-space: normal;
   overflow: hidden;
 }
 .text-truncate--1 {
@@ -47,6 +58,12 @@ p {
   line-clamp: 6;
   -webkit-line-clamp: 6;
 }
+// .v-application--is-ltr .v-window__next {
+//   right: -45px !important;
+// }
+// .v-application--is-ltr .v-window__prev {
+//   left: -45px !important;
+// }
 .custom-loader {
   animation: loader 1s infinite;
   display: flex;

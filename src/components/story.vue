@@ -184,7 +184,7 @@ export default {
         { text: "Gaming", icon: "mdi-google-controller" },
         { text: "Technology", icon: "mdi-atom" },
         { text: "Crypto", icon: "mdi-bitcoin" },
-        { text: "Forex", icon: "mdi-currency-usd" },
+        { text: "Life hacks", icon: "mdi-lightbulb-on" },
         { text: "Books", icon: "mdi-book-open-page-variant" },
         { text: "Poetry", icon: "mdi-folder-music" },
         { text: "Popular websites", icon: "mdi-web" },

@@ -64,23 +64,33 @@
                               <p
                                 class="
                                   ma-0
-                                  mb-6
-                                  text-body-1
+                                  mb-5
                                   project_desc
                                   text--truncate
-                                  text-truncate--5
-                                  text-justify
+                                  text-truncate--4
+                                  text-center
                                 "
                               >
                                 {{ active.description }}
                               </p>
+
+                              <div>
+                                <h5 class="text-subtitle-1 font-weight-bold">
+                                  Stacks
+                                </h5>
+
+                                <p class="text-subtitle-1">
+                                  {{ active.stacks }}
+                                </p>
+                              </div>
+
                               <a
                                 :href="active.link"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="text-decoration-none"
                               >
-                                <v-btn color="success">Visit</v-btn>
+                                <v-btn small color="success">Visit</v-btn>
                               </a>
                             </div>
                           </v-row>
@@ -96,7 +106,14 @@
       </v-sheet>
     </v-row>
     <v-row>
-      <v-col class="text-center"> <h3>Email for more</h3></v-col>
+      <v-col class="text-center">
+        <h3>
+          Email for more
+          <v-btn plain @click="$router.push('/contact')"
+            ><v-icon> mdi-arrow-right</v-icon></v-btn
+          >
+        </h3></v-col
+      >
     </v-row>
   </v-container>
 </template>
@@ -111,6 +128,7 @@ export default {
             "Enjoy a more engaging and organized virtual learning, At SkillsGuruh, our mission is to help people build their capacity to be more, so we connect them with Knowledge, People and Opportunities everyday.",
           link: "https://skillsguruh.com",
           image: "/images/projects/skillsweb.png",
+          stacks: "Laravel/PHP, Vue Js/Javascript, Mysql DB, Heroku, Github",
         },
         {
           name: "Commute Africa ",
@@ -118,6 +136,7 @@ export default {
             "Commute Taxi Limited; a subsidiary of Commute Africa is a public-transport service solutions provider with the aim of delivering convenient, efficient, secure and comfortable transport services through an online booking system.",
           link: "https://commuteafrica.africa",
           image: "/images/projects/commuteweb.png",
+          stacks: "Laravel/PHP, Mysql DB, Github",
         },
         {
           name: "Karisoft",
@@ -125,12 +144,15 @@ export default {
             "A technology innovation company building custom software's with expertise in UI/UX, Web development, native application, AI and deep learning, cloud, and blockchain with a focus on recent and trending technologies.",
           link: "https://karisoft.io",
           image: "/images/projects/karisoftweb.png",
+          stacks:
+            "Node Js/Javascript, Vue Js/Javascript, Mysql DB, Heroku, Github",
         },
         {
           name: "Imo Ministry of Education",
           description: "Official Website for Ministry of Education, Imo State",
           link: "https://ministryofeducation.im.gov.ng/",
           image: "/images/projects/ministryweb.png",
+          stacks: "Laravel/PHP, Vue Js/Javascript, Mysql DB, Github",
         },
 
         {
@@ -139,6 +161,7 @@ export default {
             "A powerful system that tracks your business profitability and growth in real time",
           link: "https://bizguruh.com",
           image: "/images/projects/bizguruhweb.png",
+          stacks: "Laravel/PHP, Vue Js/Javascript, Mysql DB, Heroku, Github",
         },
         {
           name: "Automate",
@@ -146,6 +169,8 @@ export default {
             "Extend, optimize, and automate your most important processes with our employee management system that tracks your talent pipeline and engages employees.",
           link: "https://kari-soft.herokuapp.com/",
           image: "/images/projects/automateweb.png",
+          stacks:
+            "Node Js/Javascript, Vue Js/Javascript, Mysql DB, Heroku, Github",
         },
 
         {
@@ -153,6 +178,7 @@ export default {
           description: "A Global Financial service solution",
           link: "https://lfamarket.herokuapp.com",
           image: "/images/projects/lfaweb.png",
+          stacks: "Node Js/Javascript, Javascript, Mongo DB, Github",
         },
         {
           name: "Karisoft Finance",
@@ -160,6 +186,8 @@ export default {
             "A Solution for Busy or Unskilled People Copy our trades from anywhere in the world and earn interest while you do nothing let us grow your funds for you.",
           link: "https://karisoft.finance",
           image: "/images/projects/karifinanceweb.png",
+          stacks:
+            "Node Js/Javascript, React Js/Javascript, Mysql DB, Heroku, Github",
         },
 
         {
@@ -168,6 +196,7 @@ export default {
             "IMSUBEB E-LEARNING is a secure and robust online portal for learning and collaboration. Multimedia learning resources, collaboration, monitoring & control mechanics, and many more extremely useful features all happen in this single shared digital space and can be accessed on the go.",
           link: "http://isl-center.herokuapp.com",
           image: "/images/projects/imolearningweb.png",
+          stacks: "Laravel/PHP, Vue Js/Javascript, Mysql DB, Heroku, Github",
         },
       ],
       active: {},
@@ -298,7 +327,7 @@ export default {
 .hold:not(.on-hover) {
   opacity: 0.7;
 }
-.hold div {
+.hold div:first-child {
   width: 100%;
   height: 100%;
 }

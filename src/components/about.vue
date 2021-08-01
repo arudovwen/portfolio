@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pb-15">
+  <v-container fluid class="">
     <v-row class="d-none d-sm-flex">
       <v-col class="text-right">
         <span class="font-weight-bold page_title">{{ $route.name }}</span>
@@ -15,23 +15,20 @@
         <div class="w-100 bg-amber-darken-2">
           <v-img class="profile_img secondary"></v-img></div
       ></v-col>
-      <v-col cols="12" sm="6">
+      <v-col cols="12" sm="6" class="pb-10">
         <div class="px-5 px-md-10">
           <div class="mb-10">
             <p class="mb-4 about_text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-              optio perferendis nostrum voluptatem maxime nihil iusto incidunt,
-              error cum quo tempore!
+              I’m a Full-stack Web Developer with about 4 years of experience, I
+              love to design/build websites.
             </p>
             <p class="mb-4 about_text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-              optio perferendis nostrum voluptatem maxime nihil iusto incidunt,
-              error cum quo tempore!
+              I am inspired by the work to do, new challenges motivate me, i’m
+              fueled by high energy levels and boundless enthusiasm. I see every
+              new challenge as an opportuity to upskill my capbilities so its
+              always fun for me...
             </p>
-            <p class="mb-4 about_text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-              optio
-            </p>
+            <p class="mb-4 about_text">Read more in my RESUME below</p>
           </div>
           <div class="text-left">
             <v-btn rounded color="primary" large ripple>Download Resume</v-btn>
@@ -41,14 +38,14 @@
     </v-row>
 
     <v-row>
-      <v-col cols="12" class="py-10">
+      <v-col cols="12" class="pb-10">
         <v-sheet
-          class="pa-10 primary rounded extra_info text-center"
+          class="px-10 pt-6 primary rounded extra_info text-center"
           rounded="xl"
         >
           <v-img
             alt="icon"
-            width="100"
+            width="80"
             class="mb-4"
             :src="require('@/assets/images/dev.svg')"
           ></v-img>
@@ -57,15 +54,19 @@
             rounded="xl"
           >
             <v-container>
-              <v-row>
+              <v-row class="text-center mb-5">
                 <v-col v-for="(item, id) in items" :key="id" cols="12" sm="4">
                   <h3 class="primary--text">{{ item.title }}</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Veritatis illo est nemo?
+                    {{ item.text }}
                   </p>
                 </v-col>
               </v-row>
+
+              <div>
+                View my resume for more information
+                <v-btn small plain color="primary" large ripple>Link</v-btn>
+              </div>
             </v-container>
           </v-sheet>
         </v-sheet>
@@ -80,15 +81,15 @@ export default {
       items: [
         {
           title: "<Languages I Speak/>",
-          text: "",
+          text: "Html, Css, Javascript, PHP, Laravel, Vue Js, React Js, Node Js",
         },
         {
           title: "<Development Tools/>",
-          text: "",
+          text: "Firebase, Netlify, Github, Postman, Bitbucket, Bootstrap, Vuetify, Command line",
         },
         {
           title: "<Database/>",
-          text: "",
+          text: "Mysql Db, Postgress Db, MongoDb",
         },
       ],
     };
@@ -96,15 +97,19 @@ export default {
 };
 </script>
 <style scoped>
+.container--fluid {
+  padding-bottom: 150px;
+}
 .about {
   width: 75%;
   margin: 0 auto;
 }
 .profile_img {
-  height: 70vh;
+  height: 60vh;
 }
 p.about_text {
   font-size: 1.25rem;
+  line-height: 1.5;
 }
 .extra_info {
   width: 75%;

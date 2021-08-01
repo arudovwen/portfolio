@@ -10,11 +10,20 @@
 
         <div class="d-flex">
           <v-btn
+            plain
+            color="adjacent"
+            href="https://github.com/arudovwen"
+            target="_blank"
+            >Github
+          </v-btn>
+          <v-btn
             v-for="icon in icons"
             :key="icon.name"
             class="mx-4 d-flex"
             dark
             icon
+            :href="icon.link"
+            target="_blank"
             color="adjacent"
           >
             <v-icon size="24px">
@@ -34,10 +43,10 @@
 export default {
   data: () => ({
     icons: [
-      {
-        name: "mdi-github",
-        link: "https://github.com/arudovwen",
-      },
+      // {
+      //   name: "mdi-github",
+      //   link: "https://github.com/arudovwen",
+      // },
       {
         name: "mdi-whatsapp",
         link: "https://api.whatsapp.com/send?phone=2348160723910&text=Hi%20there",
