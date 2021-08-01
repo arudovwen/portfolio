@@ -10,30 +10,27 @@
     <v-row class="justify-center align-center">
       <v-sheet class="sheet rounded-circle theme--transparent">
         <span
-          elevation="20"
           @click="showProject(project)"
           v-for="(project, id) in items"
           :key="id"
         >
           <v-hover v-slot="{ hover }">
-            <div class="hold" elevation="20" :class="{ 'on-hover': hover }">
-              <v-img
-                class="rounded-circle"
-                src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
-              >
+            <div
+              class="hold pa-1 white rounded-circle elevation-10"
+              :class="{ 'on-hover': hover }"
+            >
+              <v-img elevation="20" class="rounded-circle" :src="project.image">
               </v-img>
             </div>
           </v-hover>
         </span>
 
-        <v-sheet class="sheet2 rounded-circle secondary">
+        <v-sheet class="sheet2 rounded-circle primary">
           <v-sheet class="sheet3 rounded-circle" elevation="10">
             <v-sheet class="sheet4 rounded-circle">
               <v-hover v-slot="{ hover }">
                 <v-card class="hold on-hover" elevation="12">
-                  <v-img
-                    src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
-                  >
+                  <v-img :src="active.image">
                     <v-expand-transition>
                       <div
                         v-if="hover"
@@ -52,23 +49,27 @@
                             class="fill-height flex-column"
                             justify="space-between"
                           >
-                            <div class="text-center pa-3 pa-sm-5">
-                              <p
-                                class="
-                                  mt-2 mt-sm-4
-                                  font-weight-bold
-                                  project_name
-                                "
-                              >
+                            <div
+                              class="
+                                text-center
+                                pa-3 pa-sm-6
+                                d-flex
+                                justify-center
+                                flex-column
+                              "
+                            >
+                              <h5 class="mt-2 mt-sm-4 project_name">
                                 {{ active.name }}
-                              </p>
+                              </h5>
                               <p
                                 class="
                                   ma-0
                                   mb-6
                                   text-body-1
-                                  font-italic
                                   project_desc
+                                  text--truncate
+                                  text-truncate--5
+                                  text-justify
                                 "
                               >
                                 {{ active.description }}
@@ -106,52 +107,67 @@ export default {
       items: [
         {
           name: "SkillsGuruh",
-          description: "All about Skillsguruh",
+          description:
+            "Enjoy a more engaging and organized virtual learning, At SkillsGuruh, our mission is to help people build their capacity to be more, so we connect them with Knowledge, People and Opportunities everyday.",
           link: "https://skillsguruh.com",
-          image: "",
+          image: "/images/projects/skillsweb.png",
         },
         {
           name: "Commute Africa ",
-          description: "All about Skillsguruh",
+          description:
+            "Commute Taxi Limited; a subsidiary of Commute Africa is a public-transport service solutions provider with the aim of delivering convenient, efficient, secure and comfortable transport services through an online booking system.",
           link: "https://commuteafrica.africa",
-          image: "",
+          image: "/images/projects/commuteweb.png",
         },
         {
-          name: "Karisoft App",
-          description: "All about Skillsguruh",
+          name: "Karisoft",
+          description:
+            "A technology innovation company building custom software's with expertise in UI/UX, Web development, native application, AI and deep learning, cloud, and blockchain with a focus on recent and trending technologies.",
           link: "https://karisoft.io",
-          image: "",
+          image: "/images/projects/karisoftweb.png",
         },
         {
           name: "Imo Ministry of Education",
-          description: "All about Skillsguruh",
+          description: "Official Website for Ministry of Education, Imo State",
           link: "https://ministryofeducation.im.gov.ng/",
-          image: "",
-        },
-        {
-          name: "Karisoft Finance",
-          description: "All about Skillsguruh",
-          link: "https://karisoft.finance",
-          image: "",
+          image: "/images/projects/ministryweb.png",
         },
 
         {
           name: "BizGuruh",
-          description: "All about Skillsguruh",
+          description:
+            "A powerful system that tracks your business profitability and growth in real time",
           link: "https://bizguruh.com",
-          image: "",
+          image: "/images/projects/bizguruhweb.png",
         },
+        {
+          name: "Automate",
+          description:
+            "Extend, optimize, and automate your most important processes with our employee management system that tracks your talent pipeline and engages employees.",
+          link: "https://kari-soft.herokuapp.com/",
+          image: "/images/projects/automateweb.png",
+        },
+
         {
           name: "LfaMarket",
-          description: "All about Skillsguruh",
+          description: "A Global Financial service solution",
           link: "https://lfamarket.herokuapp.com",
-          image: "",
+          image: "/images/projects/lfaweb.png",
         },
         {
-          name: "Imo Learning Centre",
-          description: "All about Skillsguruh",
+          name: "Karisoft Finance",
+          description:
+            "A Solution for Busy or Unskilled People Copy our trades from anywhere in the world and earn interest while you do nothing let us grow your funds for you.",
+          link: "https://karisoft.finance",
+          image: "/images/projects/karifinanceweb.png",
+        },
+
+        {
+          name: "IMSUBEB E-LEARNING",
+          description:
+            "IMSUBEB E-LEARNING is a secure and robust online portal for learning and collaboration. Multimedia learning resources, collaboration, monitoring & control mechanics, and many more extremely useful features all happen in this single shared digital space and can be accessed on the go.",
           link: "http://isl-center.herokuapp.com",
-          image: "",
+          image: "/images/projects/imolearningweb.png",
         },
       ],
       active: {},
@@ -251,8 +267,8 @@ export default {
 }
 
 .sheet3 {
-  height: 90%;
-  width: 90%;
+  height: 95%;
+  width: 95%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -260,8 +276,8 @@ export default {
 }
 .sheet4 {
   position: relative;
-  width: 90%;
-  height: 90%;
+  width: 98%;
+  height: 98%;
   z-index: 2;
   box-shadow: 0px 1px 19px 6px rgba(0, 0, 0, 0.75) inset;
   -webkit-box-shadow: 0px 1px 19px 6px rgba(0, 0, 0, 0.75) inset;
@@ -280,7 +296,7 @@ export default {
 }
 
 .hold:not(.on-hover) {
-  opacity: 0.6;
+  opacity: 0.7;
 }
 .hold div {
   width: 100%;
@@ -295,7 +311,7 @@ export default {
   width: 100%;
 }
 .hover_bg {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
 }
 @media only screen and (max-width: 768px) {
   .sheet2 {
@@ -307,8 +323,8 @@ export default {
     height: 90%;
   }
   .sheet4 {
-    width: 90%;
-    height: 90%;
+    width: 97%;
+    height: 97%;
   }
   .sheet span {
     position: absolute;
@@ -378,8 +394,8 @@ export default {
     height: 260px;
   }
   .sheet4 {
-    width: 90%;
-    height: 90%;
+    width: 97%;
+    height: 97%;
   }
   .sheet span {
     width: 60px;

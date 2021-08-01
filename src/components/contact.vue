@@ -19,7 +19,7 @@
       <v-col cols="12" sm="12" md="6" class="d-none d-md-block">
         <div class="w-100 bg-amber-darken-2">
           <v-img
-            class="profile_img"
+            class="profile_img animate__animated animate__fadeIn"
             alt="contact_image"
             contain
             :src="require('@/assets/images/contact.png')"

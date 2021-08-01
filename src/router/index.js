@@ -41,7 +41,7 @@ const routes = [
         import(/* webpackChunkName: "projects" */ "../views/Projects.vue"),
     },
     meta: {
-      title: "projects | Success Ahon",
+      title: "Projects | Success Ahon",
     },
   },
   {

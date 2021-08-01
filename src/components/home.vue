@@ -1,30 +1,57 @@
 <template>
   <v-container fluid class="h-100 pa-0 ma-0">
     <v-row class="justify-end h-100" no-gutters>
-      <v-col cols="10" class="d-flex align-end pa-0">
+      <v-col
+        cols="10"
+        class="d-flex align-end pa-0 animate__animated animate__slideInRight"
+      >
         <div class="main_page">
           <v-container class="h-100 pa-0">
             <v-row class="name_row" no-gutters>
               <v-col>
-                <div class="name_display" v-html="name"></div>
+                <div
+                  class="name_display animate__animated animate__slideInLeft"
+                  v-html="name"
+                ></div>
               </v-col>
             </v-row>
             <v-row class="img_row flex-column flex-md-row my-0 mx-auto">
               <v-col md="6" class="pa-0 pt-5 pt-md-0 mb-5 mb-md-0">
-                <div class="h-100 secondary">
-                  <v-img src="" class="profile_img"></v-img>
+                <div
+                  class="h-100 secondary animate__animated animate__slideInUp"
+                >
+                  <v-img
+                    src=""
+                    class="profile_img animate__animated animate__flash"
+                  ></v-img>
                 </div>
               </v-col>
               <v-col
                 md="6"
                 class="px-0 pa-md-10 d-flex flex-column justify-center"
               >
-                <p class="mb-6 mb-md-10 short_info adjacent--text">
+                <p
+                  class="
+                    mb-6 mb-md-10
+                    short_info
+                    adjacent--text
+                    animate__animated animate__fadeIn animate__slower
+                  "
+                >
                   Hey, i’m Success, I design and build digital products, new
                   challenges motivate me, i’m inspired by the work i do, i guess
                   you can call me a builder.
                 </p>
-                <p class="font-weight-bold title white--text">{{ title }}</p>
+                <p
+                  class="
+                    font-weight-bold
+                    title
+                    white--text
+                    animate__animated animate__fadeIn animate__slower
+                  "
+                >
+                  {{ title }}
+                </p>
               </v-col>
             </v-row>
           </v-container>

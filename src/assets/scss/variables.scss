@@ -34,6 +34,19 @@ p {
   line-clamp: 3;
   -webkit-line-clamp: 3;
 }
+
+.text-truncate--4 {
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+}
+.text-truncate--5 {
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+}
+.text-truncate--6 {
+  line-clamp: 6;
+  -webkit-line-clamp: 6;
+}
 .custom-loader {
   animation: loader 1s infinite;
   display: flex;

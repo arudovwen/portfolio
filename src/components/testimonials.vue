@@ -26,7 +26,7 @@
                 ></v-img>
               </div>
 
-              <div class="flex text-center text pa-3">
+              <div class="flex text-center text pa-5">
                 <v-icon size="100" class="d-none d-sm-block" color="primary">
                   mdi-chat-processing
                 </v-icon>
@@ -34,11 +34,11 @@
                   mdi-chat-processing
                 </v-icon>
                 <div>
-                  <p>{{ item }}</p>
+                  <p>{{ item.text }}</p>
                 </div>
 
-                <h4>{{ item.name }}</h4>
-                <h3 class="secondary--text">{{ item.title }}</h3>
+                <h4 class="secondary--text">{{ item.name }}</h4>
+                <h3 class="primary--text">{{ item.title }}</h3>
               </div>
             </div>
           </v-card>
@@ -60,6 +60,7 @@ export default {
     items: [
       {
         color: "#1F7087",
+        text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis quam totam ipsum numquam esse accusantium voluptas aliquam, vel consequuntur nostrum ex! Quis, dolorem!",
         src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
         name: "Supermodel",
         title: "CEO, Entermarket",
