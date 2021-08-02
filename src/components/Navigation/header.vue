@@ -33,11 +33,7 @@
         >
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      class="d-lg-none justify-space-between"
-      absolute
-      elevate-on-scroll
-    >
+    <v-app-bar class="d-lg-none justify-space-between" elevate-on-scroll>
       <div class="pa-2">
         <v-avatar size="35" color="white" @click="$router.push('/')">
           <img :src="require('@/assets/images/logo.png')" alt="avatar" />

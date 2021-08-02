@@ -2,7 +2,7 @@
   <v-app :style="cssProps">
     <router-view name="header" />
     <v-main class="bg-light">
-      <transition name="fab-transition" mode="out-in">
+      <transition name="slide-x-reverse-transition" mode="out-in">
         <router-view />
       </transition>
 

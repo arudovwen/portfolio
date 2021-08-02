@@ -8,26 +8,25 @@
     </v-row>
 
     <v-row class="justify-center align-center">
-      <v-sheet class="sheet rounded-circle theme--transparent">
+      <v-sheet class="sheet rounded theme--transparent">
         <span
           @click="showProject(project)"
-          v-for="(project, id) in items"
+          v-for="(project, id) in items.slice(0, 8)"
           :key="id"
         >
           <v-hover v-slot="{ hover }">
             <div
-              class="hold pa-1 white rounded-circle elevation-10"
+              class="hold pa-1 white rounded elevation-2"
               :class="{ 'on-hover': hover }"
             >
-              <v-img elevation="20" class="rounded-circle" :src="project.image">
-              </v-img>
+              <v-img class="rounded" :src="project.image"> </v-img>
             </div>
           </v-hover>
         </span>
 
-        <v-sheet class="sheet2 rounded-circle primary">
-          <v-sheet class="sheet3 rounded-circle" elevation="10">
-            <v-sheet class="sheet4 rounded-circle">
+        <v-sheet class="sheet2 rounded primary">
+          <v-sheet class="sheet3 rounded" elevation="10">
+            <v-sheet class="sheet4 rounded">
               <v-hover v-slot="{ hover }">
                 <v-card class="hold on-hover" elevation="12">
                   <v-img :src="active.image">
@@ -52,46 +51,47 @@
                             <div
                               class="
                                 text-center
-                                pa-3 pa-sm-6
+                                pa-2 pa-sm-4
                                 d-flex
                                 justify-center
                                 flex-column
                               "
                             >
-                              <h5 class="mt-2 mt-sm-4 project_name">
+                              <h6 class="mt-0 mt-sm-4 project_name">
                                 {{ active.name }}
-                              </h5>
+                              </h6>
                               <p
                                 class="
                                   ma-0
-                                  mb-5
+                                  mb-2 mb-sm-5
                                   project_desc
-                                  text--truncate
-                                  text-truncate--4
                                   text-center
                                 "
                               >
                                 {{ active.description }}
                               </p>
 
-                              <div>
-                                <h5 class="text-subtitle-1 font-weight-bold">
+                              <div class="stacks">
+                                <h5
+                                  class="
+                                    text-subtitle-1
+                                    font-weight-bold
+                                    mb-0 mb-sm-4
+                                  "
+                                >
                                   Stacks
                                 </h5>
 
-                                <p class="text-subtitle-1">
+                                <p class="text-subtitle-1 mb-0 mb-sm-4">
                                   {{ active.stacks }}
                                 </p>
                               </div>
 
-                              <a
-                                :href="active.link"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-decoration-none"
-                              >
-                                <v-btn small color="success">Visit</v-btn>
-                              </a>
+                              <div>
+                                <v-btn small :href="active.link" color="success"
+                                  >Visit site</v-btn
+                                >
+                              </div>
                             </div>
                           </v-row>
                         </v-card-title>
@@ -218,7 +218,7 @@ export default {
 }
 .sheet {
   height: 90vh;
-  width: 90vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,20 +227,18 @@ export default {
 }
 .sheet2 {
   position: relative;
-  width: 55%;
-  height: 55%;
+  width: 46%;
+  height: 44%;
   z-index: 2;
-  /* box-shadow: 0px 1px 19px 6px rgba(0, 0, 0, 0.75) inset;
-  -webkit-box-shadow: 0px 1px 19px 6px rgba(0, 0, 0, 0.75) inset;
-  -moz-box-shadow: 0px 1px 19px 6px rgba(0, 0, 0, 0.75) inset; */
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .sheet span {
   position: absolute;
-  width: 18%;
-  height: 18%;
+  width: 250px;
+  height: 140px;
   background: var(--v-adjacent);
   border-radius: 50rem;
 }
@@ -257,23 +255,24 @@ export default {
   left: 10px;
 }
 .sheet span:nth-child(5) {
-  top: 10%;
-  right: 10%;
+  top: 10px;
+  right: 10px;
 }
 .sheet span:nth-child(6) {
-  top: 10%;
-  left: 10%;
+  top: 10px;
+  left: 10px;
 }
 .sheet span:nth-child(7) {
-  bottom: 10%;
-  right: 10%;
+  bottom: 10px;
+  right: 10px;
 }
 .sheet span:nth-child(8) {
-  bottom: 10%;
-  left: 10%;
+  bottom: 10px;
+  left: 10px;
 }
 .sheet span:nth-child(9) {
-  right: -25%;
+  top: 25%;
+  right: 15px;
 }
 .sheet span:nth-child(10) {
   left: -25%;
@@ -296,8 +295,8 @@ export default {
 }
 
 .sheet3 {
-  height: 95%;
-  width: 95%;
+  height: 98%;
+  width: 99%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -306,7 +305,7 @@ export default {
 .sheet4 {
   position: relative;
   width: 98%;
-  height: 98%;
+  height: 99%;
   z-index: 2;
   box-shadow: 0px 1px 19px 6px rgba(0, 0, 0, 0.75) inset;
   -webkit-box-shadow: 0px 1px 19px 6px rgba(0, 0, 0, 0.75) inset;
@@ -343,21 +342,29 @@ export default {
   background: rgba(0, 0, 0, 0.6);
 }
 @media only screen and (max-width: 768px) {
+  .project_name {
+    font-size: 1rem;
+    margin-bottom: 0px;
+  }
+  .project_desc {
+    font-size: 0.9rem !important;
+    line-height: 1.4;
+  }
+  .stacks h5,
+  .stacks p {
+    font-size: 0.9rem !important;
+    line-height: 1.4;
+  }
+}
+@media only screen and (max-width: 768px) {
   .sheet2 {
     width: 40%;
     height: 40%;
   }
-  .sheet3 {
-    width: 90%;
-    height: 90%;
-  }
-  .sheet4 {
-    width: 97%;
-    height: 97%;
-  }
+
   .sheet span {
     position: absolute;
-    width: 10%;
+    width: 25%;
     height: 10%;
   }
   .sheet span:nth-child(1) {
@@ -415,19 +422,12 @@ export default {
 }
 @media only screen and (max-width: 576px) {
   .sheet2 {
-    width: 280px;
-    height: 280px;
+    width: 85%;
+    height: 220px;
   }
-  .sheet3 {
-    width: 260px;
-    height: 260px;
-  }
-  .sheet4 {
-    width: 97%;
-    height: 97%;
-  }
+
   .sheet span {
-    width: 60px;
+    width: 25%;
     height: 60px;
   }
   .sheet span:nth-child(1) {
@@ -437,28 +437,28 @@ export default {
     bottom: 15%;
   }
   .sheet span:nth-child(3) {
-    right: 43%;
+    right: unset;
     top: 0;
   }
   .sheet span:nth-child(4) {
-    left: 20%;
+    left: unset;
     bottom: 1%;
   }
   .sheet span:nth-child(5) {
     top: 15%;
-    right: 20%;
+    right: 15px;
   }
   .sheet span:nth-child(6) {
     top: 15%;
-    left: 20%;
+    left: 15px;
   }
   .sheet span:nth-child(7) {
     bottom: 15%;
-    right: 20%;
+    right: 15px;
   }
   .sheet span:nth-child(8) {
     bottom: 15%;
-    left: 20%;
+    left: 15px;
   }
   .sheet span:nth-child(9) {
     top: unset;
@@ -490,8 +490,13 @@ export default {
     margin-bottom: 0px;
   }
   .project_desc {
-    font-size: 0.8rem !important;
-    line-height: 1.2;
+    font-size: 0.7rem !important;
+    line-height: 1.4;
+  }
+  .stacks h5,
+  .stacks p {
+    font-size: 0.7rem !important;
+    line-height: 1.4;
   }
 }
 </style>
