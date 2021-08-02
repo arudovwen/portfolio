@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import dashboardHeader from "@/components/Navigation/dashboardHeader";
 import Header from "@/components/Navigation/header";
 import Footer from "@/components/Navigation/footer";
 
@@ -161,7 +162,7 @@ const routes = [
     name: "Create content",
 
     components: {
-      header: Header,
+      header: dashboardHeader,
       default: () =>
         import(
           /* webpackChunkName: "create" */ "@/components/creator/create.vue"
@@ -170,6 +171,7 @@ const routes = [
     },
     meta: {
       title: "Create Content | Arudovwen",
+      authRequired: true,
     },
   },
   {
@@ -177,13 +179,14 @@ const routes = [
     name: "Edit content",
 
     components: {
-      header: Header,
+      header: dashboardHeader,
       default: () =>
         import(/* webpackChunkName: "edit" */ "@/components/creator/edit.vue"),
       footer: Footer,
     },
     meta: {
       title: "Edit Content | Arudovwen",
+      authRequired: true,
     },
   },
   {
@@ -191,7 +194,7 @@ const routes = [
     name: " Content preview",
 
     components: {
-      header: Header,
+      header: dashboardHeader,
       default: () =>
         import(
           /* webpackChunkName: "contentpreview" */ "@/components/creator/preview.vue"
@@ -200,6 +203,7 @@ const routes = [
     },
     meta: {
       title: "Contents | Arudovwen",
+      authRequired: true,
     },
   },
   {
@@ -207,7 +211,7 @@ const routes = [
     name: " Contents",
 
     components: {
-      header: Header,
+      header: dashboardHeader,
       default: () =>
         import(
           /* webpackChunkName: "content" */ "@/components/creator/contents.vue"
@@ -216,6 +220,24 @@ const routes = [
     },
     meta: {
       title: "Contents | Arudovwen",
+      authRequired: true,
+    },
+  },
+  {
+    path: "/dashboard",
+    name: " Dashboard",
+
+    components: {
+      header: dashboardHeader,
+      default: () =>
+        import(
+          /* webpackChunkName: "dashboard" */ "@/components/dashboard.vue"
+        ),
+      footer: Footer,
+    },
+    meta: {
+      title: "Dashboard | Arudovwen",
+      authRequired: true,
     },
   },
 ];
@@ -223,10 +245,15 @@ const routes = [
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
+  scrollBehavior: (to, from, savedPosition) => {
+    if (to.hash) return { selector: to.hash };
+    if (savedPosition) return savedPosition;
+
+    return { x: 0, y: 0 };
+  },
   routes,
 });
 router.beforeEach((to, from, next) => {
-  window.scrollTo(0, 0);
   window.document.title = to.meta.title;
   next();
 });

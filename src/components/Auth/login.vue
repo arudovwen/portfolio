@@ -11,16 +11,37 @@
               ref="signupForm"
               class="form"
               id="a-form"
+              @submit.stop.prevent="register"
             >
               <h2 class="form_title title primary--text">Create Account</h2>
               <div class="form__icons">
-                <v-btn class="form_icon mr-3" fab dark small color="indigo">
+                <v-btn
+                  @click="socialLogin('facebook')"
+                  class="form_icon mr-3"
+                  fab
+                  dark
+                  small
+                  color="indigo"
+                >
                   <v-icon>mdi-facebook</v-icon>
                 </v-btn>
-                <v-btn class="form_icon mr-3" fab dark small color="red">
+                <v-btn
+                  @click="socialLogin('google')"
+                  class="form_icon mr-3"
+                  fab
+                  dark
+                  small
+                  color="red"
+                >
                   <v-icon>mdi-google</v-icon>
                 </v-btn>
-                <v-btn fab light small color="blue">
+                <v-btn
+                  @click="socialLogin('twitter')"
+                  fab
+                  light
+                  small
+                  color="blue"
+                >
                   <v-icon color="white">mdi-twitter</v-icon>
                 </v-btn>
               </div>
@@ -32,7 +53,7 @@
                 v-model="name"
                 :rules="nameRules"
                 required
-                placeholder="Name"
+                placeholder="Username"
               ></v-text-field>
               <v-text-field
                 class="form__input mb-7"
@@ -58,7 +79,7 @@
                 elevation="10"
                 rounded
                 color="primary"
-                @click="loader = 'loading'"
+                type="submit"
               >
                 SIGN UP
                 <template v-slot:loader>
@@ -74,7 +95,7 @@
                 elevation="10"
                 rounded
                 color="primary"
-                @click="loader = 'loading'"
+                type="submit"
               >
                 SIGN UP
                 <template v-slot:loader>
@@ -105,16 +126,37 @@
               lazy-validation
               class="form"
               id="b-form"
+              @submit.stop.prevent="userlogin"
             >
               <h2 class="form_title title primary--text">Sign in to Website</h2>
               <div class="form__icons">
-                <v-btn class="form_icon mr-3" fab dark small color="indigo">
+                <v-btn
+                  @click="socialLogin('facebook')"
+                  class="form_icon mr-3"
+                  fab
+                  dark
+                  small
+                  color="indigo"
+                >
                   <v-icon>mdi-facebook</v-icon>
                 </v-btn>
-                <v-btn class="form_icon mr-3" fab dark small color="red">
+                <v-btn
+                  @click="socialLogin('google')"
+                  class="form_icon mr-3"
+                  fab
+                  dark
+                  small
+                  color="red"
+                >
                   <v-icon>mdi-google</v-icon>
                 </v-btn>
-                <v-btn fab light small color="blue">
+                <v-btn
+                  @click="socialLogin('twitter')"
+                  fab
+                  light
+                  small
+                  color="blue"
+                >
                   <v-icon color="white">mdi-twitter</v-icon>
                 </v-btn>
               </div>
@@ -152,7 +194,7 @@
                 elevation="10"
                 rounded
                 color="primary"
-                @click="loader = 'loading'"
+                type="submit"
               >
                 SIGN IN
                 <template v-slot:loader>
@@ -168,8 +210,8 @@
                 :disabled="loading"
                 elevation="10"
                 rounded
+                type="submit"
                 color="primary"
-                @click="loader = 'loading'"
               >
                 SIGN IN
                 <template v-slot:loader>
@@ -237,12 +279,14 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+import "firebase/auth";
 export default {
   data() {
     return {
       loader: null,
       loading: false,
-
+      authDetails: {},
       user: {
         email: "",
         password: "",
@@ -262,20 +306,13 @@ export default {
       password: "",
       passwordRules: [
         (v) => !!v || "Password is required",
-        (v) => (v && v.length <= 6) || "Password must be more than 6 ",
+        (v) => (v && v.length >= 6) || "Password must be more than 6 ",
       ],
+      provider: null,
     };
   },
-  watch: {
-    loader() {
-      const l = this.loader;
-      this[l] = !this[l];
-
-      setTimeout(() => (this[l] = false), 3000);
-
-      this.loader = null;
-    },
-  },
+  watch: {},
+  mounted() {},
   methods: {
     validate() {
       this.$refs.form.validate();
@@ -309,6 +346,90 @@ export default {
       aContainer.classList.toggle("is-txl");
       bContainer.classList.toggle("is-txl");
       bContainer.classList.toggle("is-z200");
+    },
+    userlogin() {
+      this.loading = true;
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.user.email, this.user.password)
+        .then((res) => {
+          this.authDetails = res.user;
+
+          this.$toast.success("Successfully logged in!");
+          this.$router.push("/dashboard");
+          this.loading = null;
+        })
+        .catch((error) => {
+          this.$toast.error(error.message);
+          this.loading = null;
+        });
+    },
+    register() {
+      this.loading = true;
+
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((data) => {
+          data.user
+            .updateProfile({
+              displayName: this.name,
+            })
+            .then(() => {});
+          this.$toast.success("Successfully registered! Please login.");
+          this.toggleAuth();
+          this.loading = false;
+        })
+        .catch((error) => {
+          this.$toast.error(error.message);
+          this.loading = false;
+        });
+    },
+
+    socialLogin(social) {
+      var provider;
+      if (social == "google") {
+        provider = new firebase.auth.GoogleAuthProvider();
+      }
+      if (social == "facebook") {
+        provider = new firebase.auth.FacebookAuthProvider();
+      }
+      if (social == "twitter") {
+        provider = new firebase.auth.TwitterAuthProvider();
+      }
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then((result) => {
+          // /** @type {firebase.auth.OAuthCredential} */
+          var credential = result.credential;
+          console.log(
+            "🚀 ~ file: login.vue ~ line 423 ~ .then ~ credential",
+            credential
+          );
+
+          // // This gives you a Google Access Token. You can use it to access the Google API.
+          var token = credential.accessToken;
+          console.log("🚀 ~ file: login.vue ~ line 427 ~ .then ~ token", token);
+          // // The signed-in user info.
+          var user = result.user;
+          console.log("🚀 ~ file: login.vue ~ line 430 ~ .then ~ user", user);
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          if (error.code) {
+            this.$toast.error(error.code);
+          }
+          if (error.message) {
+            this.$toast.error(error.message);
+          }
+          if (error.email) {
+            this.$toast.error(error.email);
+          }
+          if (error.credential) {
+            this.$toast.error(error.credential);
+          }
+        });
     },
   },
 };

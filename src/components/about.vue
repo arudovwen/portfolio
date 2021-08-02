@@ -140,5 +140,8 @@ p.about_text {
   .extra_info {
     width: 100%;
   }
+  .container--fluid {
+    padding-bottom: 30rem;
+  }
 }
 </style>

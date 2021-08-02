@@ -10,34 +10,22 @@
           </router-link>
         </v-list-item>
 
-        <v-list-item class="" to="/about"
-          ><span class="rotate_90"> About </span></v-list-item
+        <v-list-item class="" to="/content"
+          ><span class="rotate_90"> Contents </span></v-list-item
         >
-        <v-list-item to="/projects"
-          ><span class="rotate_90">Projects</span></v-list-item
+        <v-list-item class="" to="/stories"
+          ><span class="rotate_90"> Stories </span></v-list-item
         >
-        <v-list-item to="/testimonials" class=""
-          ><span class="rotate_90">Testimonials</span></v-list-item
+        <v-list-item to="/videos"
+          ><span class="rotate_90">Videos</span></v-list-item
         >
-        <v-list-item target="_blank" to="/blog" class=""
-          ><span class="rotate_90">Blog</span></v-list-item
-        >
-        <v-list-item to="/contact" class=""
-          ><span class="rotate_90">Contact</span></v-list-item
-        >
-        <v-list-item class="" to="/authenticate" v-if="!user.loggedIn"
-          ><span class="rotate_90">Login</span></v-list-item
-        >
+
         <v-list-item @click="logout" class="" v-if="user.loggedIn"
           ><span class="rotate_90">Logout</span></v-list-item
         >
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      class="d-lg-none justify-space-between"
-      absolute
-      elevate-on-scroll
-    >
+    <v-app-bar class="d-lg-none justify-space-between" elevate-on-scroll>
       <div class="pa-2">
         <v-avatar size="35" color="white" @click="$router.push('/')">
           <img :src="require('@/assets/images/logo.png')" alt="avatar" />
