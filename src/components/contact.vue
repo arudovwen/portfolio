@@ -1,10 +1,5 @@
 <template>
   <v-container fluid>
-    <v-row class="d-none d-sm-flex">
-      <v-col class="text-right">
-        <span class="font-weight-bold page_title">{{ $route.name }}</span>
-      </v-col>
-    </v-row>
     <v-row class="about">
       <v-col cols="12">
         <h2 class="text-center primary--text mobile_header">

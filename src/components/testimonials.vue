@@ -1,11 +1,5 @@
 <template>
   <v-container fluid class="h-100 d-flex justify-center align-center">
-    <!-- <v-sheet
-      class="pa-12 circle_1"
-      color="adjacent "
-      t
-      rounded="circle"
-    ></v-sheet> -->
     <div class="testimonials">
       <h2 class="text-center mb-6">Client Testimonials</h2>
       <v-carousel
@@ -65,11 +59,6 @@
         </v-carousel-item>
       </v-carousel>
     </div>
-    <!-- <v-sheet
-      class="pa-12 circle_2"
-      color="accent lighten-3"
-      rounded="circle"
-    ></v-sheet> -->
   </v-container>
 </template>
 <script>

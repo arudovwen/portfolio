@@ -10,7 +10,11 @@
             <v-row class="name_row" no-gutters>
               <v-col>
                 <div
-                  class="name_display animate__animated animate__slideInLeft"
+                  class="
+                    name_display
+                    animate__animated animate__slideInLeft
+                    font-weight-bold
+                  "
                   v-html="name"
                 ></div>
               </v-col>

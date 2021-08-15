@@ -3,7 +3,6 @@
     <v-row class="d-none d-sm-flex">
       <v-col class="d-flex justify-space-between">
         <h3>Here are some of my recent projects</h3>
-        <span class="font-weight-bold page_title">{{ $route.name }}</span>
       </v-col>
     </v-row>
 
@@ -15,27 +14,24 @@
           :key="id"
         >
           <v-hover v-slot="{ hover }">
-            <div
-              class="hold pa-1 white rounded elevation-2"
-              :class="{ 'on-hover': hover }"
-            >
+            <div class="hold pa-1 white rounded" :class="{ 'on-hover': hover }">
               <v-img class="rounded" :src="project.image"> </v-img>
             </div>
           </v-hover>
         </span>
 
-        <v-sheet class="sheet2 rounded primary">
-          <v-sheet class="sheet3 rounded" elevation="10">
+        <v-sheet class="sheet2 rounded">
+          <v-sheet class="sheet3 rounded">
             <v-sheet class="sheet4 rounded">
               <v-hover v-slot="{ hover }">
-                <v-card class="hold on-hover" elevation="12">
+                <v-card class="hold on-hover">
                   <v-img :src="active.image">
-                    <v-expand-transition>
+                    <v-slide-x-transition>
                       <div
                         v-if="hover"
                         class="
                           d-flex
-                          transition-fast-in-fast-out
+                          transition-slow-in-slow-out
                           v-card--reveal
                           text-h2
                           white--text
@@ -96,7 +92,7 @@
                           </v-row>
                         </v-card-title>
                       </div>
-                    </v-expand-transition>
+                    </v-slide-x-transition>
                   </v-img>
                 </v-card>
               </v-hover>
